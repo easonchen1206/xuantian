@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台南竹篙厝上帝廟（德高厝上帝廟）- 線上點燈與雷雨師靈籤</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 思源宋體風格 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Noto Serif TC', serif, system-ui;
+    }
+    @keyframes xuanwuGlow {
+      0%, 100% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6)); }
+      50% { filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)); }
+    }
+    .xuanwu-glow {
+      animation: xuanwuGlow 3.5s infinite ease-in-out;
+    }
+    /* 籤筒搖晃動畫 */
+    @keyframes shakeCylinder {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(-10deg) translate(-2px, -4px); }
+      40% { transform: rotate(10deg) translate(2px, -8px); }
+      60% { transform: rotate(-10deg) translate(-3px, -4px); }
+      80% { transform: rotate(8deg) translate(2px, -2px); }
+      100% { transform: rotate(0deg); }
+    }
+    .shaking {
+      animation: shakeCylinder 0.5s infinite ease-in-out;
+    }
+    /* 擲筊拋擲旋轉動畫 */
+    @keyframes tossBlock {
+      0% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(-40px) rotate(180deg) scale(1.15); }
+      100% { transform: translateY(0) rotate(360deg) scale(1); }
+    }
+    .tossing {
+      animation: tossBlock 0.6s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-[#F8F6F0] text-stone-800 antialiased selection:bg-amber-700 selection:text-white">
+
+  <!-- 頂部導航列 -->
+  <header class="sticky top-0 z-40 bg-[#1A2238] text-amber-50 shadow-lg border-b-2 border-amber-500/40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-md border border-amber-200">
+          帝
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-wider text-amber-100">德高厝上帝廟</h1>
+          <p class="text-[10px] text-amber-300/80 tracking-widest">竹篙厝庄信仰總樞紐・北極真武三百年香火</p>
+        </div>
+      </div>
+      
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold tracking-widest">
+        <a href="#deities" class="hover:text-amber-300 transition">真武聖紀</a>
+        <a href="#history" class="hover:text-amber-300 transition">廟史沿革</a>
+        <a href="#divination" class="text-amber-400 hover:text-amber-300 transition flex items-center gap-1"><span>🎋</span>線上求籤</a>
+        <a href="#lanterns" class="hover:text-amber-300 transition">線上點燈</a>
+        <a href="#proxy-worship" class="hover:text-amber-300 transition">代客奉香</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="#divination" class="border border-amber-400 text-amber-300 hover:bg-amber-400 hover:text-slate-950 px-3 py-1.5 rounded-full font-bold text-xs transition">
+          求靈籤
+        </a>
+        <a href="#lanterns" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 px-3.5 py-1.5 rounded-full font-bold text-xs shadow transition">
+          點燈祈安
+        </a>
+      </div>
+    </div>
+  </header>
+
+ <!-- 主視覺 (Hero Banner) -->
+  <section class="relative bg-gradient-to-b from-[#1A2238] via-[#111625] to-[#0A0D17] text-white py-16 md:py-24 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#38BDF8_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    
+    <div class="max-w-6xl mx-auto relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+      <!-- 左側：文字文案 -->
+      <div class="w-full lg:w-3/5 text-center lg:text-left">
+        <span class="inline-block border border-amber-400/50 bg-amber-950/50 text-amber-300 text-xs tracking-widest px-4 py-1.5 rounded-full mb-6">
+          北方鎮天真武靈應・雷雨師百籤神機指引
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black tracking-widest mb-6 leading-tight text-amber-100">
+          玄天佑民・本命光彩<br><span class="text-amber-400">德高厝上帝廟 數位祈福網</span>
+        </h2>
+        <p class="text-stone-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          主祀北極玄天上帝（帝爺公），腳踏龜蛇、手持七星寶劍，掌管北方水德，專司消災辟邪、延年益壽、保佑闔境平安。縱隔千里，虔誠祈求皆能感應道交。
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <a href="#divination" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold px-8 py-3.5 rounded-xl shadow-lg transition text-base tracking-widest flex items-center justify-center gap-2">
+            <span>🎋</span> 誠心向帝爺公求籤
+          </a>
+          <a href="#proxy-worship" class="border border-amber-400/60 hover:bg-white/10 text-amber-200 font-semibold px-8 py-3.5 rounded-xl transition text-base tracking-widest text-center">
+            祈安代客奉香
+          </a>
+        </div>
+      </div>
+
+      <!-- 右側：玄天上帝照片展示卡片 -->
+      <div class="w-full lg:w-2/5 flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 via-sky-500 to-amber-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-75 transition duration-500"></div>
+          <div class="relative w-64 h-84 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-2xl bg-slate-900">
+            <img src="god.jpg" alt="德高厝上帝廟 玄天上帝金尊" class="w-full h-full object-cover object-top hover:scale-105 transition duration-500">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 text-center">
+              <span class="text-amber-300 font-bold text-xs tracking-widest">德高厝上帝廟・鎮殿開基玄天上帝</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主祀神尊介紹 -->
+  <section id="deities" class="py-20 max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center space-x-2 text-amber-800 font-bold text-sm tracking-widest mb-2">
+        <span>◆</span><span>奉祀諸神・威靈赫濯</span><span>◆</span>
+        </div>
+      <h2 class="text-3xl font-black text-stone-900 tracking-wider">主祀真武神聖與列位尊神</h2>
+      <div class="w-16 h-1 bg-amber-600 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- 主神特寫卡片 -->
+    <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-stone-200 mb-12 flex flex-col lg:flex-row items-center gap-8">
+      <div class="w-full lg:w-1/3 aspect-[4/5] rounded-2xl relative overflow-hidden shadow-inner border-2 border-amber-500/40 bg-slate-900 group">
+        <img src="god_ink.jpg" alt="德高厝上帝廟 北極玄天上帝" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none"></div>
+        <div class="absolute bottom-0 inset-x-0 p-6 text-center text-amber-100 z-10">
+          <span class="text-2xl font-bold tracking-widest block drop-shadow-md">北極玄天上帝</span>
+          <span class="text-xs text-amber-300 tracking-widest mt-1 block drop-shadow">（玄武大帝・帝爺公）</span>
+        </div>
+      </div>
+      
+      <div class="w-full lg:w-2/3">
+        <div class="inline-block bg-sky-100 text-sky-900 text-xs px-3 py-1 rounded-full font-bold mb-3">鎮殿正神</div>
+        <h3 class="text-2xl md:text-3xl font-bold text-stone-900 mb-4">北方真武總司・降魔伏煞 玄天上帝</h3>
+        <p class="text-stone-600 leading-relaxed mb-4 text-sm md:text-base">
+          玄天上帝本為北方二十八宿之玄武星宿化身，統攝北方天界。尊容披髮跣足、手秉七星神劍、腳踏龜蛇二將。因具備至陽消煞、統理水德之神能，專司除邪辟惡、治病保命、啟迪前程。信眾凡有坎坷疑慮，虔心向帝爺公抽籤請旨，往往指點切中機鋒。
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-stone-100 pt-4 text-xs">
+          <div>
+            <span class="text-stone-400 block mb-1">聖誕千秋</span>
+            <strong class="text-stone-800 font-semibold">農曆三月初三日</strong>
+          </div>
+          <div>
+            <span class="text-stone-400 block mb-1">靈籤體系</span>
+            <strong class="text-amber-800 font-bold">雷雨師一百籤（靈應無雙）</strong>
+          </div>
+          <div>
+            <span class="text-stone-400 block mb-1">元辰神位</span>
+            <strong class="text-amber-700 font-bold">真武本命光明燈</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 陪祀尊神 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
+        <div class="text-3xl mb-3">🛡️</div>
+        <div class="text-xs font-bold text-amber-700 mb-1">御前護法將軍</div>
+        <h4 class="text-lg font-bold text-stone-900 mb-2">康趙二元帥 / 龜蛇水火將</h4>
+        <p class="text-stone-600 text-xs leading-relaxed mb-4">
+          隨侍玄帝左右之威武尊神。巡按四海，護佑鄉里掃除穢毒惡煞，使凶氣消散，萬象吉昌。
+        </p>
+        <span class="inline-block bg-stone-100 text-stone-700 text-[11px] px-2.5 py-1 rounded font-medium">保佑：辟邪護身・出入平安</span>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
+        <div class="text-3xl mb-3">🌸</div>
+        <div class="text-xs font-bold text-amber-700 mb-1">偏殿奉祀</div>
+        <h4 class="text-lg font-bold text-stone-900 mb-2">註生娘娘</h4>
+        <p class="text-stone-600 text-xs leading-relaxed mb-4">
+          主掌人間延嗣安胎之神。保佑孕期順產、嬰幼免除驚煞、孩童乖巧安康，為家庭子息守護慈神。
+        </p>
+        <span class="inline-block bg-stone-100 text-stone-700 text-[11px] px-2.5 py-1 rounded font-medium">保佑：祈子延齡・母子均安</span>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
+        <div class="text-3xl mb-3">🌾</div>
+        <div class="text-xs font-bold text-amber-700 mb-1">偏殿奉祀</div>
+        <h4 class="text-lg font-bold text-stone-900 mb-2">福德正神（伯公）</h4>
+        <p class="text-stone-600 text-xs leading-relaxed mb-4">
+          守護竹篙厝庄境土地五穀豐登，亦兼司在地財源利祿，庇蔭店家開市大吉、受薪階級正財亨通。
+        </p>
+        <span class="inline-block bg-stone-100 text-stone-700 text-[11px] px-2.5 py-1 rounded font-medium">保佑：招財鎮宅・四方利祿</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 廟史沿革 -->
+  <section id="history" class="py-16 bg-stone-100/80 border-t border-stone-200">
+    <div class="max-w-4xl mx-auto px-4 text-stone-700">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold tracking-widest text-amber-800 uppercase">Historic Heritage</span>
+        <h3 class="text-2xl font-black text-stone-900 mt-1">竹篙厝聚落與德高厝上帝廟</h3>
+        <div class="w-12 h-1 bg-amber-600 mx-auto mt-2 rounded-full"></div>
+      </div>
+      <div class="space-y-4 text-sm leading-relaxed">
+        <p>
+          德高厝上帝廟古名<strong>「竹篙厝上帝廟」</strong>，座落於台南市東區德高里，為昔時台灣府城東郊「仁和里竹篙厝庄」開闢以來的公廟信仰核心。
+        </p>
+        <p>
+          早期拓墾先民披荊斬棘之際，為抗禦瘟瘴外患，自原鄉恭迎玄天上帝香火庇護，於庄中築草堂安座。隨後經嘉慶、光緒年間屢次倡建，乃至戰後地方合力重建宏偉廟貌。廟中典藏豐富歷史匾額與石造遺跡，見證了竹篙厝開庄以降拓墾繁衍與神明護國佑民的輝煌歲月。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 核心新增功能：線上求籤專區 -->
+  <!-- ======================== -->
+  <section id="divination" class="py-20 bg-gradient-to-b from-[#111625] to-[#1A2238] text-white border-t border-stone-800 relative">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="inline-block border border-amber-400/40 bg-amber-950/60 text-amber-300 text-xs tracking-widest px-4 py-1.5 rounded-full mb-3">
+          道法自然・感應道交
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-wider text-amber-100">
+          玄天上帝・雷雨師一百籤
+        </h2>
+        <p class="text-stone-300 text-xs md:text-sm mt-2 max-w-lg mx-auto">
+          依循台南道教傳統求籤科儀：靜心報號 ➔ 誠敬抽籤 ➔ 擲筊請示 ➔ 奉領籤文
+        </p>
+      </div>
+
+      <!-- 求籤互動主容器 -->
+      <div class="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 md:p-12 shadow-2xl backdrop-blur-sm max-w-2xl mx-auto text-center">
+
+        <!-- 步驟 1: 虔心稟報 -->
+        <div id="divinationStep1">
+          <div class="text-5xl mb-4">🙏</div>
+          <h3 class="text-xl font-bold text-amber-300 mb-2">第一步：焚香默禱・具名稟事</h3>
+          <p class="text-xs text-stone-400 mb-6">
+            請信士先閉目定心，心中默念自己姓名、農曆生辰、現居地址，並專注於一件心中疑難。
+          </p>
+          
+          <div class="space-y-4 text-left text-sm max-w-md mx-auto">
+            <div>
+              <label class="block text-stone-300 text-xs font-bold mb-1">信士/信女姓名</label>
+              <input type="text" id="drawName" placeholder="請填寫姓名" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-400 text-sm">
+            </div>
+            <div>
+              <label class="block text-stone-300 text-xs font-bold mb-1">請示事項類別</label>
+              <select id="drawCategory" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-400 text-sm">
+                <option value="事業前程與功名">事業前途・功名升遷</option>
+                <option value="財富求財與投資">求財進寶・經商開業</option>
+                <option value="姻緣感情與婚姻">姻緣聚散・夫妻和睦</option>
+                <option value="身體健康與病體">身體康健・消災祛病</option>
+                <option value="家宅安寧與人際">家宅元辰・人際是非</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-stone-300 text-xs font-bold mb-1">心中疑惑簡述（選填）</label>
+              <input type="text" id="drawIssue" placeholder="例：近日轉職是否合宜？" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-400 text-sm">
+            </div>
+            <button onclick="startDrawing()" class="w-full mt-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold py-3 rounded-xl shadow-lg transition tracking-widest text-base">
+              稟奏完畢・搖動籤筒抽籤
+            </button>
+          </div>
+        </div>
+
+        <!-- 步驟 2: 抽籤筒搖動 -->
+        <div id="divinationStep2" class="hidden">
+          <div id="bambooCylinder" class="text-7xl mb-6 inline-block transition transform cursor-pointer">
+            🎋
+          </div>
+          <h3 class="text-xl font-bold text-amber-300 mb-2">第二步：誠敬搖籤</h3>
+          <p class="text-xs text-stone-400 mb-6" id="shakeStatusText">
+            籤筒搖動中，感應帝爺公指引……
+          </p>
+
+          <div id="drawnLotPreview" class="hidden my-4 p-4 bg-slate-800/80 rounded-2xl border border-amber-500/40 inline-block">
+            <span class="text-xs text-stone-400 block mb-1">抽得第幾籤</span>
+            <span class="text-2xl font-black text-amber-400" id="drawnLotTitle"></span>
+          </div>
+
+          <div>
+            <button id="btnProceedJiaobei" onclick="goToJiaobeiStep()" class="hidden bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold px-8 py-3 rounded-xl shadow-lg transition tracking-widest text-sm">
+              前往擲筊確認此籤
+            </button>
+          </div>
+        </div>
+
+        <!-- 步驟 3: 擲筊確認 (聖筊判定) -->
+        <div id="divinationStep3" class="hidden">
+          <h3 class="text-xl font-bold text-amber-300 mb-2">第三步：擲筊請示玄天上帝</h3>
+          <p class="text-xs text-stone-400 mb-6">
+            所抽得籤號需向神明請示，需得「聖筊（一平一凸）」方為此籤。
+          </p>
+
+          <!-- 筊杯呈現 -->
+          <div class="flex justify-center items-center gap-6 my-6 h-28" id="cupBlocksContainer">
+            <div id="blockLeft" class="text-6xl transition duration-300">🌙</div>
+            <div id="blockRight" class="text-6xl transition duration-300">🌙</div>
+          </div>
+
+          <!-- 擲筊結果動態回饋 -->
+          <div id="jiaobeiMessage" class="min-h-[48px] text-sm font-bold mb-6 text-amber-200">
+            請點擊下方按鈕向帝爺公擲筊請旨
+          </div>
+
+          <div class="flex justify-center gap-4">
+            <button id="btnThrowCups" onclick="throwCups()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold px-8 py-3 rounded-xl shadow-lg transition tracking-widest text-sm">
+              開始擲筊請示
+            </button>
+            <button id="btnRedraw" onclick="resetToStep2()" class="hidden border border-stone-500 hover:bg-stone-800 text-stone-300 font-bold px-6 py-3 rounded-xl transition text-sm">
+              換籤重抽
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 籤詩成果彈出視窗 (Modal) -->
+  <div id="poemModal" class="fixed inset-0 bg-stone-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-[#FFFDF9] border-4 border-amber-700 rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative text-stone-900">
+      
+      <!-- 關閉按鈕 -->
+      <button onclick="closePoemModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-700 text-2xl font-bold">✕</button>
+
+      <!-- 籤頭資訊 -->
+      <div class="text-center border-b border-amber-900/20 pb-4 mb-5">
+        <div class="text-xs font-bold tracking-widest text-amber-800 mb-1">德高厝上帝廟・雷雨師一百籤</div>
+        <h3 class="text-2xl font-black text-stone-900" id="poemHeadTitle">第一籤 甲甲</h3>
+        <div class="inline-flex items-center gap-2 mt-2">
+          <span class="bg-red-800 text-white text-xs px-2.5 py-0.5 rounded-full font-bold" id="poemGrade">大吉</span>
+          <span class="text-xs text-stone-600 font-medium" id="poemLegend">漢高祖入關</span>
+        </div>
+      </div>
+
+      <!-- 詩文四句 (古典書法排版) -->
+      <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-6 text-center mb-5 shadow-inner">
+        <div class="text-lg md:text-xl font-black leading-loose text-stone-900 tracking-widest whitespace-pre-line" id="poemVerses">
+          巍巍獨步向雲間
+          玉殿千官第一班
+          富貴榮華天付汝
+          福如東海壽如山
+        </div>
+      </div>
+
+      <!-- 聖意解曰 -->
+      <div class="space-y-3 text-xs leading-relaxed mb-6">
+        <div class="bg-stone-100 p-3.5 rounded-xl">
+          <strong class="text-amber-900 block font-bold mb-1">【聖意批示】</strong>
+          <p class="text-stone-700" id="poemHolyMeaning"></p>
+        </div>
+        <div class="bg-stone-100 p-3.5 rounded-xl">
+          <strong class="text-amber-900 block font-bold mb-1">【帝爺公指引・現代解說】</strong>
+          <p class="text-stone-700" id="poemModernAdvice"></p>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-stone-200 flex flex-col sm:flex-row gap-3">
+        <button onclick="closePoemModal()" class="flex-1 bg-[#1A2238] hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-sm">
+          信受奉行・感謝神恩
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 線上點燈專區 -->
+  <section id="lanterns" class="py-20 bg-white border-t border-stone-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <span class="text-amber-800 font-bold text-sm tracking-widest uppercase">Sacred Lantern Offering</span>
+        <h2 class="text-3xl font-black text-stone-900 tracking-wider mt-1">線上安奉元辰明燈</h2>
+        <p class="text-stone-500 text-sm mt-2">依循道教科儀呈奏疏文，初一十五誦經祈安迴向</p>
+      </div>
+
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 1. 真武元辰燈 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="bg-gradient-to-r from-slate-900 to-[#1A2238] text-white p-5 text-center relative">
+            <span class="text-4xl block mb-2">⚔️</span>
+            <h3 class="text-xl font-bold tracking-widest">真武元辰燈</h3>
+            <p class="text-amber-300 text-xs mt-1">元辰光彩・辟邪護體</p>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <ul class="text-xs text-stone-600 space-y-2 mb-6">
+              <li class="flex items-center">✓ 帝爺公本命元神護衛</li>
+              <li class="flex items-center">✓ 驅退小人晦氣、避開煞厄</li>
+              <li class="flex items-center">✓ 適合全家老少祈求一年安泰</li>
+            </ul>
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <span class="text-xs text-stone-500">緣金</span>
+                <span class="text-2xl font-black text-slate-900">NT$ 900</span>
+              </div>
+              <button onclick="openLanternModal('真武元辰光明燈', 900)" class="w-full bg-[#1A2238] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                點亮真武燈
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- 2. 文昌燈 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="bg-gradient-to-r from-slate-900 to-[#1A2238] text-white p-5 text-center relative">
+            <span class="text-4xl block mb-2">📖</span>
+            <h3 class="text-xl font-bold tracking-widest">文昌智慧燈</h3>
+            <p class="text-amber-300 text-xs mt-1">智慧大開・金榜題名</p>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <ul class="text-xs text-stone-600 space-y-2 mb-6">
+              <li class="flex items-start">✓ 點亮智慧・文思泉湧</li>
+              <li class="flex items-start">✓ 考運亨通・金榜題名</li>
+              <li class="flex items-start">✓ 功名顯達・仕途順遂</li>
+            </ul>
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <span class="text-xs text-stone-500">緣金</span>
+                <span class="text-2xl font-black text-slate-900">NT$ 900</span>
+              </div>
+              <button onclick="openLanternModal('文昌智慧燈', 900)" class="w-full bg-[#1A2238] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                點亮文昌燈
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 太歲燈 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="bg-gradient-to-r from-red-800 to-red-900 text-white p-5 text-center">
+            <span class="text-4xl block mb-2">🏮</span>
+            <h3 class="text-xl font-bold tracking-widest">太歲保運燈</h3>
+            <p class="text-red-200 text-xs mt-1">消災納吉・逢凶化吉</p>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <ul class="text-xs text-stone-600 space-y-2 mb-6">
+              <li class="flex items-center">✓ 本命年坐、沖、害太歲者首選</li>
+              <li class="flex items-center">✓ 化解凶曜刑煞、行車安寧</li>
+              <li class="flex items-center">✓ 每月朔望誦太歲經文解厄</li>
+            </ul>
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <span class="text-xs text-stone-500">緣金</span>
+                <span class="text-2xl font-black text-red-800">NT$ 900</span>
+              </div>
+              <button onclick="openLanternModal('值年太歲保運燈', 900)" class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                安奉太歲燈
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 求財燈 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition flex flex-col">
+          <div class="bg-gradient-to-r from-amber-600 to-amber-700 text-white p-5 text-center">
+            <span class="text-4xl block mb-2">🌾</span>
+            <h3 class="text-xl font-bold tracking-widest">福德求財燈</h3>
+            <p class="text-amber-100 text-xs mt-1">招財進寶・事業亨通</p>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <ul class="text-xs text-stone-600 space-y-2 mb-6">
+              <li class="flex items-center">✓ 伯公坐鎮財庫、穩固正偏財</li>
+              <li class="flex items-center">✓ 祈求生意興隆、開張順利</li>
+              <li class="flex items-center">✓ 庇佑官運亨通、貴人相助</li>
+            </ul>
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <span class="text-xs text-stone-500">緣金</span>
+                <span class="text-2xl font-black text-amber-700">NT$ 900</span>
+              </div>
+              <button onclick="openLanternModal('福德求財興旺燈', 900)" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                點亮發財燈
+              </button>
+            </div>
+          </div>
+        </div>
+
+        </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 新增：代客奉香服務區塊 -->
+  <!-- ======================== -->
+  <section id="proxy-worship" class="py-20 bg-stone-100 border-t border-stone-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-amber-800 font-bold text-sm tracking-widest uppercase">Proxy Worship Service</span>
+        <h2 class="text-3xl font-black text-stone-900 tracking-wider mt-1">朔望祈安・代客奉香</h2>
+        <p class="text-stone-500 text-sm mt-2">每月初一、十五定期上稟疏文，將神明的庇佑融入生活</p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-xl border border-stone-200 overflow-hidden flex flex-col lg:flex-row max-w-5xl mx-auto">
+        
+        <!-- 左側：服務理念 (行銷語) -->
+        <div class="lg:w-1/2 p-8 lg:p-12 bg-gradient-to-br from-[#1A2238] to-[#0A0D17] text-white flex flex-col justify-center relative">
+          <div class="absolute top-0 right-0 p-6 opacity-10 text-6xl">🕊️</div>
+          <h3 class="text-2xl lg:text-3xl font-black text-amber-300 mb-4 tracking-widest">距離再遠，虔心不減</h3>
+          <p class="text-stone-300 text-sm leading-relaxed mb-8">
+            現代生活節奏緊湊，許多善信因工作繁忙、身處外地，或是受限於大樓住宅的環保規範，無法親自到廟宇上香化金。本廟特設「代客奉香」服務，由廟祝代為為您圓滿敬意。
+          </p>
+          
+          <ul class="space-y-6 text-sm text-stone-200">
+            <li class="flex items-start">
+              <span class="text-amber-400 text-xl mr-4">🌿</span>
+              <div>
+                <strong class="text-amber-200 block mb-1">大樓住宅・響應環保</strong>
+                免去都會區無法焚香燒金的煩惱，由廟方於清淨道場代為奉香化金，環保不減誠心。
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-amber-400 text-xl mr-4">✈️</span>
+              <div>
+                <strong class="text-amber-200 block mb-1">外地遊子・常保平安</strong>
+                無論您在外縣市打拼或旅居海外，每逢初一十五，廟祝將於殿前親唱您的芳名稟報帝爺公，護佑出入平安。
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-amber-400 text-xl mr-4">🙏</span>
+              <div>
+                <strong class="text-amber-200 block mb-1">恆常祈福・祝福常駐</strong>
+                專屬祈安疏文定期上達天聽，讓神明的綿延庇佑，成為您與家人每個月最堅實的後盾。
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 右側：方案選擇 -->
+        <div class="lg:w-1/2 p-8 lg:p-12 bg-[#FFFDF9] flex flex-col justify-center gap-6 relative">
+          <h4 class="text-lg font-bold text-stone-800 text-center mb-2">請選擇您的護持方案</h4>
+          
+          <!-- 月繳方案 -->
+          <div class="border-2 border-stone-200 hover:border-amber-500 bg-white rounded-2xl p-6 cursor-pointer transition relative group" onclick="openWorshipModal('朔望祈安【按月護持】', 388)">
+            <div class="flex justify-between items-center mb-2">
+              <h5 class="text-lg font-bold text-stone-900">按月護持・隨心安泰</h5>
+              <span class="text-2xl font-black text-amber-700">NT$ 388<span class="text-sm font-normal text-stone-500"> /月</span></span>
+            </div>
+            <p class="text-xs text-stone-500 mb-4">每月初一、十五代辦清香、壽金與疏文稟報。可隨時取消。</p>
+            <button class="w-full bg-stone-100 group-hover:bg-amber-100 text-stone-700 group-hover:text-amber-800 font-bold py-2.5 rounded-xl text-sm transition">
+              選擇月繳方案
+            </button>
+          </div>
+
+          <!-- 年繳方案 (推薦) -->
+          <div class="border-2 border-amber-500 bg-amber-50/50 rounded-2xl p-6 cursor-pointer transition relative group shadow-md" onclick="openWorshipModal('朔望祈安【年度圓滿】', 3888)">
+            <div class="absolute -top-3 right-4 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-widest shadow-sm">
+              推薦優惠・立省 NT$ 768
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <h5 class="text-lg font-bold text-amber-900">年度圓滿・四季平安</h5>
+              <span class="text-2xl font-black text-red-700">NT$ 3888<span class="text-sm font-normal text-stone-500"> /年</span></span>
+            </div>
+            <p class="text-xs text-stone-600 mb-4">涵蓋全年 24 次朔望祈安，將您的祈願長留帝爺公案前，福祿綿長。</p>
+            <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold py-2.5 rounded-xl text-sm shadow transition">
+              選擇年繳方案
+            </button>
+          </div>
+          
+          <p class="text-center text-[11px] text-stone-400 mt-2">
+            ※ 費用包含：頂級臥香、祈安壽金一份、專屬疏文撰寫與廟祝代稟服務費。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer id="about" class="bg-stone-900 text-stone-400 py-12 text-xs leading-relaxed border-t-4 border-amber-600">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h4 class="text-stone-200 font-bold text-sm mb-3">德高厝上帝廟 管理委員會</h4>
+        <p>座落地址：台南市東區德高里竹篙厝街區</p>
+        <p>本廟主祀：北極玄天上帝（玄武大帝）</p>
+        <p>參拜時間：每日清晨 06:00 至 晚間 20:30</p>
+      </div>
+      <div>
+        <h4 class="text-stone-200 font-bold text-sm mb-3">雷雨師百籤與科儀</h4>
+        <p>雷雨師一百籤為府城道教名剎通用之權威靈籤。本系統之科儀嚴遵古法，抽得靈籤後務請心平氣和、諸惡莫作，神明自當暗中庇蔭。</p>
+      </div>
+      <div>
+        <h4 class="text-stone-200 font-bold text-sm mb-3">信徒個資保護聲明</h4>
+        <p>信眾填報之姓名、生辰與祈願事項，僅作為線上演算與道場列印疏文之用，恪遵個人資料保護法，絕不外流。</p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 text-center border-t border-stone-800 pt-6 text-[11px] text-stone-500">
+      © 2026 台南德高厝上帝廟（竹篙厝上帝廟）管理委員會 版權所有.
+    </div>
+  </footer>
+
+  <!-- 點燈表單彈跳視窗 (Modal) -->
+  <div id="lanternModal" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative border border-stone-200">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-600 text-xl font-bold">✕</button>
+      <div class="text-center mb-6">
+        <span class="inline-block bg-slate-100 text-slate-900 text-xs px-3 py-1 rounded-full font-bold mb-2" id="modalLanternBadge">文昌智慧燈</span>
+        <h3 class="text-2xl font-black text-stone-900">善信祈安疏文資料</h3>
+      </div>
+      <form id="blessingForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-sm">
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">祈福人姓名 *</label>
+          <input type="text" id="devoteeName" required placeholder="請填寫本命真實姓名" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">乾坤造別 *</label>
+            <select id="devoteeGender" class="w-full border border-stone-300 rounded-xl px-3 py-2.5 text-sm">
+              <option value="乾造（信士）">信士（男）</option>
+              <option value="坤造（信女）">信女（女）</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">出生日期 *</label>
+            <input type="date" id="birthDate" required class="w-full border border-stone-300 rounded-xl px-4 py-2 text-sm">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">現居地址 *</label>
+          <input type="text" id="devoteeAddress" required placeholder="例：台南市東區德高里..." class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm">
+          </div>
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">祈願心願</label>
+          <input type="text" id="devoteeWish" placeholder="例：消災解厄、元辰光彩、平安順遂" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm">
+        </div>
+        <div class="pt-3 border-t border-stone-200">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-stone-600 font-medium">功德緣金</span>
+            <span class="text-2xl font-black text-amber-700" id="modalPrice">NT$ 900</span>
+          </div>
+          <button type="submit" class="w-full bg-[#1A2238] hover:bg-slate-800 text-white font-bold py-3 rounded-xl shadow-lg transition tracking-widest text-base">
+            確認呈稟・完成點燈
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 代客奉香彈跳視窗 (Modal) -->
+  <div id="worshipModal" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative border border-amber-200">
+      <button onclick="closeWorshipModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-600 text-xl font-bold">✕</button>
+      <div class="text-center mb-6">
+        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-bold mb-2" id="worshipBadge">朔望祈安【年度圓滿】</span>
+        <h3 class="text-2xl font-black text-stone-900">代客奉香 登記資料</h3>
+        <p class="text-stone-500 text-xs mt-2">您的資料將由廟祝於每月初一、十五撰寫入專屬疏文</p>
+      </div>
+      <form id="worshipForm" onsubmit="handleWorshipSubmit(event)" class="space-y-4 text-sm">
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">祈福對象姓名 *</label>
+          <input type="text" id="worshipName" required placeholder="可填寫個人或「王大明闔家」" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm focus:border-amber-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">庇佑常駐地址（住家或公司） *</label>
+          <input type="text" id="worshipAddress" required placeholder="例：台南市東區..." class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm focus:border-amber-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">聯絡電話（僅供訂單通知使用） *</label>
+          <input type="tel" id="worshipPhone" required placeholder="例：0912-345-678" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm focus:border-amber-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block font-bold text-stone-700 mb-1">常態祈願訴求（選填）</label>
+          <input type="text" id="worshipWish" placeholder="例：祈求事業順利、出入平安、家人健康" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-sm focus:border-amber-500 focus:outline-none">
+        </div>
+        <div class="pt-3 border-t border-stone-200">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-stone-600 font-medium">方案結帳金額</span>
+            <span class="text-2xl font-black text-red-700" id="worshipPrice">NT$ 3888</span>
+          </div>
+          <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-stone-950 font-bold py-3 rounded-xl shadow-lg transition tracking-widest text-base">
+            確認登記・前往結帳
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 成功憑證 Modal (共用) -->
+  <div id="successModal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-[#FFFDF9] border-4 border-amber-600 rounded-3xl max-w-md w-full p-8 shadow-2xl text-center relative">
+      <div class="text-6xl mb-3 inline-block">⚔️</div>
+      <span class="inline-block bg-amber-700 text-amber-50 text-xs px-3 py-1 rounded-full font-bold mb-2">登記圓滿</span>
+      <h3 class="text-2xl font-black text-stone-900 mb-1">玄天上帝 聖光普照</h3>
+      <div class="bg-amber-50/50 p-5 rounded-2xl border-2 border-dashed border-amber-400 text-left text-xs space-y-2 my-4">
+        <div><strong>祈安善信：</strong><span id="resName" class="text-stone-900 font-bold"></span></div>
+        <div><strong>辦理項目：</strong><span id="resType" class="text-amber-800 font-bold"></span></div>
+        <div><strong>專屬標號：</strong><span id="resSlot" class="text-blue-900 font-mono font-bold"></span></div>
+        <div><strong>上呈意旨：</strong><span id="resWish"></span></div>
+      </div>
+      <button onclick="closeSuccessModal()" class="w-full bg-[#1A2238] hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-sm">
+        信受奉行・返回官網
+      </button>
+    </div>
+  </div>
+
+  <!-- =============================== -->
+  <!-- JavaScript 核心：雷雨師籤詩資料庫與科儀 -->
+  <!-- =============================== -->
+  <script>
+    // 雷雨師一百籤資料庫（經典籤詩收錄）
+    const LEIYUSHI_POEMS = [
+      {
+        num: "第一籤",
+        ganzhi: "甲甲",
+        grade: "大吉",
+        legend: "漢高祖入關",
+        verses: "巍巍獨步向雲間\n玉殿千官第一班\n富貴榮華天付汝\n福如東海壽如山",
+        meaning: "功名顯達、福祿俱全、訟即得理、疾病立痊、求財大吉、婚姻圓滿。",
+        advice: "帝爺公指引：此籤為極吉之象。代表你所問之事即將破繭而出、獨占鰲頭。以往的辛苦積累獲得天道認可，只要行事光明磊落，自得天祐神助。"
+      },
+      {
+        num: "第二籤",
+        ganzhi: "甲乙",
+        grade: "上吉",
+        legend: "宋太祖練兵",
+        verses: "盈虛消息總天時\n自此君當百事宜\n若問前程歸縮地\n須憑陰騭整民規",
+        meaning: "訟即解散、名利漸成、財物自裕、疾疹即寧、孕生貴子、百事皆亨。",
+        advice: "帝爺公指引：天道循環，困頓之局已過，順境已然開啟。但關鍵在於「須憑陰騭」，平時多積陰德、謙和行善，運途自會越走越廣。"
+      },
+      {
+        num: "第八籤",
+        ganzhi: "甲辛",
+        grade: "上吉",
+        legend: "大舜耕歷山",
+        verses: "年來耕稼苦無收\n今歲田疇定有秋\n況遇太平無事日\n士農工商業尤隆",
+        meaning: "名與利、漸昌隆、婚必合、訟漸融、病漸瘳、家道豐泰、萬事吉昌。",
+        advice: "帝爺公指引：過去或許徒勞無功、收穫甚微，但今年時運轉變，如大旱逢甘霖。專注耕耘你的主業，時機已成熟，定有豐碩回報。"
+      },
+      {
+        num: "第十六籤",
+        ganzhi: "乙己",
+        grade: "下下",
+        legend: "王勃投幼",
+        verses: "破舟乘浪疾如飛\n借得順風好著磯\n忽遇狂風又折柁\n如何行止得心歸",
+        meaning: "莫行險境、舟船防危、名利虛花、病有驚險、訟莫妄爭、安分自全。",
+        advice: "帝爺公指引：目前處境如破舟遇順風看似極快，但根基不穩，隨時有暗礁狂風。切忌躁進或投機行事，應暫停腳步穩固基礎，方能避開折舵之難。"
+      },
+      {
+        num: "第二十八籤",
+        ganzhi: "丙辛",
+        grade: "上吉",
+        legend: "司馬相如題橋",
+        verses: "公侯將相本無種\n好把勤勞答上天\n今日富貴榮華至\n喜逢運至有前程",
+        meaning: "功名成就、求財遂心、出入皆吉、訟必得直、疾病痊安、婚姻良緣。",
+        advice: "帝爺公指引：大丈夫當立鴻鵠之志，莫因出身或眼前阻礙看輕自己。立下志向、堅忍奮鬥，帝爺公將於關鍵時為你開通門路。"
+      },
+      {
+        num: "第五十籤",
+        ganzhi: "戊癸",
+        grade: "上吉",
+        legend: "蘇東坡居杭州",
+        verses: "人說今年勝舊年\n也須步步要周旋\n一家和氣多生福\n莫把私心壞自然",
+        meaning: "運勢暢達、謀事漸遂、財利漸入、官訟得和、家和萬事興、吉慶臨門。",
+        advice: "帝爺公指引：此籤明示運氣確有起色，但切記「一家和氣多生福」。無論是家庭還是團隊，放下私心與執拗，多為他人著想，福氣自能源源不絕。"
+      },
+      {
+        num: "第六十六籤",
+        ganzhi: "庚己",
+        grade: "上上",
+        legend: "杜甫遊春",
+        verses: "耕耘只在是何時\n大抵農工得遇時\n天若富民人自樂\n春來何處不芬菲",
+        meaning: "求名必成、求利亦豐、婚姻相諧、病患自解、出外大吉、如春風化雨。",
+        advice: "帝爺公指引：好景如春回大地，所求之事欣欣向榮。不要過度焦慮，當前你所播下的善因，正迎來最好的成熟時節，放寬心坦然迎接成果。"
+      },
+      {
+        num: "第八十八籤",
+        ganzhi: "壬辛",
+        grade: "上吉",
+        legend: "周廟觀欹器",
+        verses: "從前作事總徒勞\n此日翻成富貴豪\n莫聽旁人閒說話\n山神暗地有主張",
+        meaning: "名利通泰、莫聽流言、行事定見、訟終得理、疾病平安、凡事自遂。",
+        advice: "帝爺公指引：以往雖然屢屢碰壁，但局面即將徹底逆轉。最忌諱聽信旁人閒言碎語而自亂陣腳，堅定本心，神明冥冥中已有最好安排。"
+      },
+      {
+        num: "第一百籤",
+        ganzhi: "癸癸",
+        grade: "大吉",
+        legend: "趙子龍救阿斗",
+        verses: "我本天仙雷雨師\n吉凶禍福我先知\n至誠禱祝皆靈應\n抽得終籤百事宜",
+        meaning: "名成利遂、諸事大吉、病立除根、婚姻良合、訟得雪冤、終享安泰。",
+        advice: "帝爺公指引：雷雨師滿籤。代表大圓滿之境。心誠則靈，過去所有的委屈與疑惑皆得解圍消弭，勇敢前行，萬事順遂祥和。"
+      }
+    ];
+
+    let currentSelectedPoem = null;
+    let cupTossCount = 0;
+
+    // 步驟 1 -> 步驟 2
+    function startDrawing() {
+      const name = document.getElementById('drawName').value.trim();
+      if (!name) {
+        alert('請先填寫善信姓名，以稟奏帝爺公！');
+        return;
+      }
+      document.getElementById('divinationStep1').classList.add('hidden');
+      document.getElementById('divinationStep2').classList.remove('hidden');
+
+      // 開始搖動籤筒
+      const cylinder = document.getElementById('bambooCylinder');
+      const statusText = document.getElementById('shakeStatusText');
+      cylinder.classList.add('shaking');
+      statusText.innerText = "籤筒搖動中，感應帝爺公指引……";
+
+      setTimeout(() => {
+        cylinder.classList.remove('shaking');
+        // 隨機選籤
+        const randomIndex = Math.floor(Math.random() * LEIYUSHI_POEMS.length);
+        currentSelectedPoem = LEIYUSHI_POEMS[randomIndex];
+
+        document.getElementById('drawnLotTitle').innerText = `${currentSelectedPoem.num}【${currentSelectedPoem.ganzhi}・${currentSelectedPoem.grade}】`;
+        document.getElementById('drawnLotPreview').classList.remove('hidden');
+        document.getElementById('btnProceedJiaobei').classList.remove('hidden');
+        statusText.innerText = "已為您搖出籤枝！請前往擲筊請示玄天上帝是否允准。";
+      }, 1500);
+    }
+
+    // 步驟 2 -> 步驟 3
+    function goToJiaobeiStep() {
+      document.getElementById('divinationStep2').classList.add('hidden');
+      document.getElementById('divinationStep3').classList.remove('hidden');
+      document.getElementById('jiaobeiMessage').innerText = "請點擊按鈕，向德高厝上帝廟玄天上帝擲筊請旨！";
+      document.getElementById('btnRedraw').classList.add('hidden');
+      document.getElementById('btnThrowCups').classList.remove('hidden');
+      cupTossCount = 0;
+    }
+
+    function resetToStep2() {
+      document.getElementById('divinationStep3').classList.add('hidden');
+      document.getElementById('divinationStep2').classList.remove('hidden');
+      document.getElementById('drawnLotPreview').classList.add('hidden');
+      document.getElementById('btnProceedJiaobei').classList.add('hidden');
+      startDrawing();
+    }
+
+    // 擲筊核心邏輯
+    function throwCups() {
+      const left = document.getElementById('blockLeft');
+      const right = document.getElementById('blockRight');
+      const msg = document.getElementById('jiaobeiMessage');
+      const btnThrow = document.getElementById('btnThrowCups');
+      const btnRedraw = document.getElementById('btnRedraw');
+
+      left.classList.add('tossing');
+      right.classList.add('tossing');
+      btnThrow.disabled = true;
+      msg.innerText = "擲筊中，請心念合一……";
+
+      setTimeout(() => {
+        left.classList.remove('tossing');
+        right.classList.remove('tossing');
+        btnThrow.disabled = false;
+        cupTossCount++;
+
+        // 模擬台灣傳統三種筊象 (提高第1或第2次獲得聖筊的體驗感)
+        const rand = Math.random();
+        let result = '';
+
+        if (cupTossCount >= 2 || rand < 0.6) {
+          result = 'SHENG'; // 聖筊 (一平一凸 / 一正一反)
+        } else if (rand < 0.8) {
+          result = 'XIAO';  // 笑筊 (雙平 / 兩仰)
+        } else {
+          result = 'YIN';   // 陰筊 (雙凸 / 兩俯)
+        }
+
+        if (result === 'SHENG') {
+          // 聖筊：一陽一陰
+          left.innerText = '🌙'; // 俯 (凸)
+          right.innerText = '🌖'; // 仰 (平)
+          msg.innerHTML = `<span class="text-amber-400 text-lg">【聖筊！神明允准】</span><br>玄天上帝已賜筊確認，此籤即為指點信士之良策！正在為您開啟籤詩……`;
+          btnThrow.classList.add('hidden');
+
+          setTimeout(() => {
+            showPoemModal();
+          }, 1400);
+
+        } else if (result === 'XIAO') {
+          // 笑筊：兩仰
+          left.innerText = '🌖';
+          right.innerText = '🌖';
+          msg.innerHTML = `<span class="text-yellow-300 text-base">【笑筊】</span><br>帝爺公微笑不答或所問未清。請再次誠心請示擲筊，或換籤重抽。`;
+          btnRedraw.classList.remove('hidden');
+        } else {
+          // 陰筊：兩俯
+          left.innerText = '🌙';
+          right.innerText = '🌙';
+          msg.innerHTML = `<span class="text-rose-400 text-base">【怒筊/無筊】</span><br>神明表示非此籤枝。請點擊「換籤重抽」重新感應。`;
+          btnRedraw.classList.remove('hidden');
+        }
+      }, 700);
+    }
+
+    // 展開籤詩 Modal
+    function showPoemModal() {
+      if (!currentSelectedPoem) return;
+      document.getElementById('poemHeadTitle').innerText = `${currentSelectedPoem.num} ${currentSelectedPoem.ganzhi}`;
+      document.getElementById('poemGrade').innerText = currentSelectedPoem.grade;
+      document.getElementById('poemLegend').innerText = currentSelectedPoem.legend;
+      document.getElementById('poemVerses').innerText = currentSelectedPoem.verses;
+      document.getElementById('poemHolyMeaning').innerText = currentSelectedPoem.meaning;
+      document.getElementById('poemModernAdvice').innerText = currentSelectedPoem.advice;
+
+      document.getElementById('poemModal').classList.remove('hidden');
+    }
+
+    function closePoemModal() {
+      document.getElementById('poemModal').classList.add('hidden');
+      // 重置回求籤步驟 1
+      document.getElementById('divinationStep3').classList.add('hidden');
+      document.getElementById('divinationStep1').classList.remove('hidden');
+      document.getElementById('btnThrowCups').classList.remove('hidden');
+      document.getElementById('btnRedraw').classList.add('hidden');
+    }
+
+    // ========================
+    // 線上點燈邏輯
+    // ========================
+    let currentLantern = { name: '文昌智慧燈', price: 900 };
+
+    function openLanternModal(name, price) {
+      currentLantern = { name, price };
+      document.getElementById('modalLanternBadge').innerText = name;
+      document.getElementById('modalPrice').innerText = `NT$ ${price}`;
+      document.getElementById('lanternModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('lanternModal').classList.add('hidden');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('devoteeName').value;
+      const wish = document.getElementById('devoteeWish').value || '消災解厄・元辰光彩・出入平安';
+      
+      const trigrams = ['乾宮', '坎宮', '艮宮', '震宮', '巽宮', '離宮', '坤宮', '兌宮'];
+      const randomTrigram = trigrams[Math.floor(Math.random() * trigrams.length)];
+      const randomNum = String(Math.floor(Math.random() * 280) + 1).padStart(3, '0');
+      // 自動判定如果是文昌燈則顯示文昌正殿，其餘皆顯示真武正殿
+      const hall = currentLantern.name.includes('文昌') ? '文昌正殿' : '真武正殿';
+      const slotNumber = `${hall} ${randomTrigram} 第 ${randomNum} 號燈`;
+
+      document.getElementById('resName').innerText = name;
+      document.getElementById('resType').innerText = currentLantern.name;
+      document.getElementById('resSlot').innerText = slotNumber;
+      document.getElementById('resWish').innerText = wish;
+
+      closeModal();
+      document.getElementById('successModal').classList.remove('hidden');
+      document.getElementById('blessingForm').reset();
+    }
+
+    // ========================
+    // 代客奉香服務邏輯
+    // ========================
+    let currentWorshipPlan = { name: '', price: 0 };
+
+    function openWorshipModal(name, price) {
+      currentWorshipPlan = { name, price };
+      document.getElementById('worshipBadge').innerText = name;
+      document.getElementById('worshipPrice').innerText = `NT$ ${price}`;
+      document.getElementById('worshipModal').classList.remove('hidden');
+    }
+
+    function closeWorshipModal() {
+      document.getElementById('worshipModal').classList.add('hidden');
+    }
+
+    function handleWorshipSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('worshipName').value;
+      const wish = document.getElementById('worshipWish').value || '祈求闔家平安、事業順遂';
+      
+      const date = new Date();
+      const orderId = `S${date.getFullYear()}${String(date.getMonth()+1).padStart(2,'0')}${String(date.getDate()).padStart(2,'0')}-${Math.floor(Math.random() * 9000 + 1000)}`;
+
+      document.getElementById('resName').innerText = name;
+      document.getElementById('resType').innerText = currentWorshipPlan.name;
+      document.getElementById('resSlot').innerText = `登記編號：${orderId}`;
+      document.getElementById('resWish').innerText = wish;
+
+      closeWorshipModal();
+      document.getElementById('successModal').classList.remove('hidden');
+      document.getElementById('worshipForm').reset();
+    }
+
+    // 關閉成功憑證 Modal
+    function closeSuccessModal() {
+      document.getElementById('successModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
